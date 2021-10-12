@@ -196,16 +196,8 @@ public class LoginForm extends javax.swing.JFrame {
                 Class.forName("com.mysql.cj.jdbc.Driver");  
 //                url="jdbc:mysql://localhost:8080//student","root","");  
                 con = DriverManager.getConnection(CON_STRING,USERNAME,PASSWORD);
-                Statement statement= con.createStatement();
-//                System.out.println("Connection created");  
-//                con.close();  
-//                System.out.println("Connection closed");  
+                Statement statement= con.createStatement();  
                     if(con != null){
-//                    System.out.println("connection ok");
-//                    JOptionPane.showMessageDialog(null, "connection ok");
-                      
-//                             WelcomePage welcomePage = new  WelcomePage();
-//                             welcomePage.setVisible(true);
                             String user = usenametxt.getText();
                             String pass =new String(passwordtxt.getText());
                             
@@ -219,6 +211,7 @@ public class LoginForm extends javax.swing.JFrame {
                                      //JOptionPane.showMessageDialog(null, "Login Successful........");
                                         HomePage home = new HomePage();
                                         home.setVisible(true);
+                                        dispose();
                                  }else{
                                      JOptionPane.showMessageDialog(null, "User not Registred....!");
                                  }

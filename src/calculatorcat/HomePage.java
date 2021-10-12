@@ -52,11 +52,12 @@ public class HomePage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ResultTbl = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
-        answertxt = new javax.swing.JLabel();
+        searchtxt = new javax.swing.JTextField();
+        searchbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Simple Calc System");
+        jLabel1.setText("CAT II Calc System");
 
         jLabel2.setText("F.Number");
 
@@ -105,80 +106,94 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         logoutbtn.setText("Logout");
+        logoutbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutbtnActionPerformed(evt);
+            }
+        });
 
         ResultTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "No", "1st Number", "Operator", "2nd Number", "Answer"
+                "No", "1st Number", "Operator", "2nd Number", "Answer", "Date"
             }
         ));
+        ResultTbl.setCursor(new java.awt.Cursor(java.awt.Cursor.W_RESIZE_CURSOR));
         jScrollPane1.setViewportView(ResultTbl);
+        if (ResultTbl.getColumnModel().getColumnCount() > 0) {
+            ResultTbl.getColumnModel().getColumn(0).setResizable(false);
+            ResultTbl.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         jLabel4.setText("Result Table");
 
-        answertxt.setText("answer");
+        searchbtn.setText("Search");
+        searchbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(logoutbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(closeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(savebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(fnumber, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                    .addComponent(snumber))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jLabel1))
+                        .addGap(164, 164, 164)
+                        .addComponent(jLabel4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(fnumber, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                            .addComponent(snumber))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(addradiobtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(subradiobtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(multradiobtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(divradiobtn))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(jLabel4)))))
-                .addGap(72, 72, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(logoutbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(savebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(answertxt)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                .addComponent(divradiobtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchbtn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(20, 20, 20)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(fnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addradiobtn)
                     .addComponent(subradiobtn)
                     .addComponent(multradiobtn)
-                    .addComponent(divradiobtn))
+                    .addComponent(divradiobtn)
+                    .addComponent(searchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -193,10 +208,8 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(closeBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(logoutbtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(answertxt))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 45, Short.MAX_VALUE))
+                        .addGap(0, 46, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,7 +257,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_multradiobtnActionPerformed
 
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
-        
+        dispose();
     }//GEN-LAST:event_closeBtnActionPerformed
 
     private void savebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebtnActionPerformed
@@ -258,6 +271,16 @@ public class HomePage extends javax.swing.JFrame {
            subradiobtn.setSelected(false);
         }
     }//GEN-LAST:event_divradiobtnActionPerformed
+
+    private void searchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbtnActionPerformed
+        searchingMethod();
+    }//GEN-LAST:event_searchbtnActionPerformed
+
+    private void logoutbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtnActionPerformed
+        LoginForm l = new LoginForm();
+        l.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_logoutbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,7 +320,6 @@ public class HomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ResultTbl;
     private javax.swing.JRadioButton addradiobtn;
-    private javax.swing.JLabel answertxt;
     private javax.swing.JButton closeBtn;
     private javax.swing.JRadioButton divradiobtn;
     private javax.swing.JTextField fnumber;
@@ -310,12 +332,17 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton logoutbtn;
     private javax.swing.JRadioButton multradiobtn;
     private javax.swing.JButton savebtn;
+    private javax.swing.JButton searchbtn;
+    private javax.swing.JTextField searchtxt;
     private javax.swing.JTextField snumber;
     private javax.swing.JRadioButton subradiobtn;
     // End of variables declaration//GEN-END:variables
 
     private void CheckWithRadioBtn() {
-        if(addradiobtn.isSelected()){
+        if(fnumber.getText().equals("") || snumber.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "All Fields is Required!");
+        }
+        else if(addradiobtn.isSelected()){
            String num1 =fnumber.getText();
            String num2 = snumber.getText();
            String op ="+";
@@ -369,18 +396,8 @@ public class HomePage extends javax.swing.JFrame {
                   String query1 = "INSERT INTO `operation`(`Operand1`, `Operand2`, `Operator`, `Result`) VALUES ('"+numone+"','"+numtwo+"','"+op1+"','"+Res+"')";
                   statement.executeUpdate(query1);
                   JOptionPane.showMessageDialog(null, "Operation Done!");
-                  //selecting data from the Database
-                  String selectQuery="SELECT * FROM operation";
-                  ResultSet rs= statement.executeQuery(selectQuery);
-                  DefaultTableModel tm =(DefaultTableModel) ResultTbl.getModel();
-                  tm.setRowCount(0);
-                  while(rs.next()){
-                      Object o[]={rs.getInt("OperationId"),rs.getString("Operand1"),rs.getString("Operator"),rs.getString("Operand2"),rs.getString("Result"),rs.getString("ActionDate")};
-                        tm.addRow(o);
-                  }
-                  
-                }
-           
+                 
+                }       
             }else{
                 JOptionPane.showMessageDialog(null, "connection Failed");
             }
@@ -394,6 +411,35 @@ public class HomePage extends javax.swing.JFrame {
     private void SaveOperationMethod() {
         CheckWithRadioBtn();
     
+    }
+
+    private void searchingMethod() {
+       
+        String searchText= searchtxt.getText();
+         String USERNAME="enock";
+        String PASSWORD="enock";  
+        String CON_STRING="jdbc:mysql://localhost:3306/iprc_tumba_2021";
+        Connection con = null;
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(CON_STRING,USERNAME,PASSWORD);
+             Statement statement= con.createStatement();
+        //selecting data from the Database
+                  String selectQuery="SELECT * FROM operation WHERE ActionDate LIKE '%"+searchText+"%'";
+                  ResultSet rs= statement.executeQuery(selectQuery);
+                  DefaultTableModel tm =(DefaultTableModel) ResultTbl.getModel();
+                  tm.setRowCount(0);
+                  while(rs.next()){
+                      Object o[]={rs.getInt("OperationId"),rs.getString("Operand1"),rs.getString("Operator"),rs.getString("Operand2"),rs.getString("Result"),rs.getString("ActionDate")};
+                        tm.addRow(o);
+                  }
+        } catch (SQLException ex) {
+            Logger.getLogger(HomePage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(HomePage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
     }
 
 }
