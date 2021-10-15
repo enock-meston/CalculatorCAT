@@ -65,7 +65,6 @@
                       <Component id="fnumber" pref="62" max="32767" attributes="0"/>
                       <Component id="snumber" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
@@ -125,7 +124,7 @@
                           <Component id="closeBtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="logoutbtn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="46" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="163" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -150,8 +149,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fnumber">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fnumberKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="snumber">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="snumberKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="addradiobtn">
           <Properties>
@@ -278,6 +283,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="searchtxt">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchtxtKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="searchbtn">
           <Properties>

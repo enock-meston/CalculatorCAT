@@ -201,7 +201,6 @@ public class LoginForm extends javax.swing.JFrame {
                             String user = usenametxt.getText();
                             String pass =new String(passwordtxt.getText());
                             
-                            int query;
                             ResultSet myRs= null;
                             try {
                                  myRs = statement.executeQuery("SELECT * FROM `login` where Username='"+user+"' AND Password='"+pass+"'");

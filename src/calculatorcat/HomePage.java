@@ -6,6 +6,7 @@
 
 package calculatorcat;
 
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -62,6 +63,18 @@ public class HomePage extends javax.swing.JFrame {
         jLabel2.setText("F.Number");
 
         jLabel3.setText("S.Number");
+
+        fnumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fnumberKeyTyped(evt);
+            }
+        });
+
+        snumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                snumberKeyTyped(evt);
+            }
+        });
 
         addradiobtn.setText("+");
         addradiobtn.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +145,12 @@ public class HomePage extends javax.swing.JFrame {
 
         jLabel4.setText("Result Table");
 
+        searchtxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                searchtxtKeyTyped(evt);
+            }
+        });
+
         searchbtn.setText("Search");
         searchbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +177,6 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(fnumber, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                     .addComponent(snumber))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(164, 164, 164)
@@ -208,7 +226,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(closeBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(logoutbtn)
-                        .addGap(0, 46, Short.MAX_VALUE))
+                        .addGap(0, 163, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
@@ -281,6 +299,34 @@ public class HomePage extends javax.swing.JFrame {
         l.setVisible(true);
         dispose();
     }//GEN-LAST:event_logoutbtnActionPerformed
+
+    private void fnumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnumberKeyTyped
+        // To avoid any unwanted key value
+        char c = evt.getKeyChar();
+        if(! (Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)){
+            getToolkit().beep();
+           evt.consume();
+        }
+        
+    }//GEN-LAST:event_fnumberKeyTyped
+
+    private void snumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_snumberKeyTyped
+        // To avoid any unwanted key value
+        char c = evt.getKeyChar();
+        if(! (Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)){
+            getToolkit().beep();
+           evt.consume();
+        }
+    }//GEN-LAST:event_snumberKeyTyped
+
+    private void searchtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchtxtKeyTyped
+        // To avoid any unwanted key value
+        char c = evt.getKeyChar();
+        if(! (Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)){
+            getToolkit().beep();
+           evt.consume();
+        }
+    }//GEN-LAST:event_searchtxtKeyTyped
 
     /**
      * @param args the command line arguments
@@ -418,7 +464,7 @@ public class HomePage extends javax.swing.JFrame {
         String searchText= searchtxt.getText();
          String USERNAME="enock";
         String PASSWORD="enock";  
-        String CON_STRING="jdbc:mysql://localhost:3306/iprc_tumba_2021";
+        String CON_STRING="jdbc:mysql://localhost:3306/iprc_tumba_2021"; // API 
         Connection con = null;
         
         try {
